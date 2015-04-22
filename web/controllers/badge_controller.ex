@@ -2,7 +2,8 @@ defmodule ElixirBadges.BadgeController do
   use ElixirBadges.Web, :controller
 
   @font_size 14
-  @width_per_char 9.4
+  @font_family "DejaVu Sans,Verdana,Geneva,sans-serif"
+  @width_per_char 7.4
 
   plug :action
 
@@ -17,10 +18,26 @@ defmodule ElixirBadges.BadgeController do
   defp licenses_badge(licenses) when is_list licenses do
     content = Enum.join(licenses, ", ")
 
-    width_s = to_string(width = String.length(content) * @width_per_char)
-    height_s = to_string(height = 20)
-    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"" <> width_s <> "\" height=\"" <> height_s <> "\">
-      <g fill=\"#000\" text-anchor=\"middle\" font-family=\"DejaVu Sans,Verdana,Geneva,sans-serif\" font-size=\"" <> to_string(@font_size) <> "\">
+    width_s = to_string(width = (18 + (String.length(content) * @width_per_char)))
+
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"" <> width_s <> "\" height=\"20\">
+
+      <linearGradient id=\"smooth\" x2=\"0\" y2=\"100%\">
+        <stop offset=\"0\" stop-color=\"#bbb\" stop-opacity=\".1\"/>
+        <stop offset=\"1\" stop-opacity=\".1\"/>
+      </linearGradient>
+    
+      <mask id=\"round\">
+        <rect width=\"" <> width_s <> "\" height=\"20\" rx=\"3\" fill=\"#fff\"/>
+      </mask>
+    
+      <g mask=\"url(#round)\">
+        <rect x=\"0\" width=\"" <> width_s <> "\" height=\"20\" fill=\"#ccc\"/>
+        <rect width=\"" <> width_s <> "\" height=\"20\" fill=\"url(#smooth)\"/>
+      </g>
+    
+      <g fill=\"#fff\" text-anchor=\"middle\" font-family=\""<>@font_family<>"\" font-size=\"" <> to_string(@font_size) <> "\">
+        <text x=\"" <> to_string(width / 2 + 1) <> "\" y=\"15\" fill=\"#010101\" fill-opacity=\".3\">"<>content<>"</text>
         <text x=\"" <> to_string(width / 2 + 1) <> "\" y=\"14\">"<>content<>"</text>
       </g>
     </svg>"

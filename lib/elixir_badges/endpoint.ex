@@ -16,9 +16,9 @@ defmodule ElixirBadges.Endpoint do
   plug Plug.Logger
 
   # Skipp all the not needed parsers.
-  #plug Plug.Parsers,
-  #  parsers: [:urlencoded, :multipart, :json],
-  #  pass: ["*/*"],
+  plug Plug.Parsers,
+    parsers: [:urlencoded, :multipart], #, :json
+    pass: ["*/*"]
   #  json_decoder: Poison
 
   #plug Plug.MethodOverride

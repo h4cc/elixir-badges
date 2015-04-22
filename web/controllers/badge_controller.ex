@@ -37,8 +37,8 @@ defmodule ElixirBadges.BadgeController do
       </g>
     
       <g fill=\"#fff\" text-anchor=\"middle\" font-family=\""<>@font_family<>"\" font-size=\"" <> to_string(@font_size) <> "\">
-        <text x=\"" <> to_string(width / 2 + 1) <> "\" y=\"15\" fill=\"#010101\" fill-opacity=\".3\">"<>content<>"</text>
-        <text x=\"" <> to_string(width / 2 + 1) <> "\" y=\"14\">"<>content<>"</text>
+        <text x=\"" <> to_string(width / 2 + 1) <> "\" y=\"16\" fill=\"#010101\" fill-opacity=\".3\">"<>content<>"</text>
+        <text x=\"" <> to_string(width / 2 + 1) <> "\" y=\"15\">"<>content<>"</text>
       </g>
     </svg>"
   end

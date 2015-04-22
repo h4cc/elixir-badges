@@ -8,7 +8,7 @@ use Mix.Config
 # meaningful, we use this information when generating URLs.
 config :elixir_badges, ElixirBadges.Endpoint,
   http: [port: {:system, "PORT"}],
-  url: [host: "example.com"]
+  url: [host: "elixir-badges.herokuapp.com"]
 
 # ## SSL Support
 #

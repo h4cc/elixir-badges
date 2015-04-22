@@ -15,19 +15,20 @@ defmodule ElixirBadges.Endpoint do
 
   plug Plug.Logger
 
-  plug Plug.Parsers,
-    parsers: [:urlencoded, :multipart, :json],
-    pass: ["*/*"],
-    json_decoder: Poison
+  # Skipp all the not needed parsers.
+  #plug Plug.Parsers,
+  #  parsers: [:urlencoded, :multipart, :json],
+  #  pass: ["*/*"],
+  #  json_decoder: Poison
 
-  plug Plug.MethodOverride
-  plug Plug.Head
+  #plug Plug.MethodOverride
+  #plug Plug.Head
 
-  plug Plug.Session,
-    store: :cookie,
-    key: "_elixir_badges_key",
-    signing_salt: "qYApdCKY",
-    encryption_salt: "z5gqyiH9"
+  #plug Plug.Session,
+  #  store: :cookie,
+  #  key: "_elixir_badges_key",
+  #  signing_salt: "qYApdCKY",
+  #  encryption_salt: "z5gqyiH9"
 
   plug :router, ElixirBadges.Router
 end

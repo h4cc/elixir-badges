@@ -33,6 +33,9 @@ defmodule ElixirBadges.Web do
 
       # Import URL helpers from the router
       import ElixirBadges.Router.Helpers
+
+      # Own aliases
+      alias ElixirBadges.Hex
     end
   end
 

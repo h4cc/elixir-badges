@@ -27,8 +27,8 @@ config :elixir_badges, ElixirBadges.Endpoint,
 config :logger, :console, format: "[$level] $message\n"
 
 # Configure your database
-config :elixir_badges, ElixirBadges.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "elixir_badges_dev"
+#config :elixir_badges, ElixirBadges.Repo,
+#  adapter: Ecto.Adapters.Postgres,
+#  username: "postgres",
+#  password: "postgres",
+#  database: "elixir_badges_dev"

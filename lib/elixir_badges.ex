@@ -4,15 +4,17 @@ defmodule ElixirBadges do
   # See http://elixir-lang.org/docs/stable/elixir/Application.html
   # for more information on OTP Applications
   def start(_type, _args) do
-    import Supervisor.Spec, warn: false
+    import Supervisor.Spec
 
     children = [
       # Start the endpoint when the application starts
       supervisor(ElixirBadges.Endpoint, []),
+
       # Start the Ecto repository
-      worker(ElixirBadges.Repo, []),
-      # Here you could define other workers and supervisors as children
-      # worker(ElixirBadges.Worker, [arg1, arg2, arg3]),
+      #worker(ElixirBadges.Repo, []),
+
+      # Starting our Cache with timeout.
+      worker(ElixirBadges.Cache, []),
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
